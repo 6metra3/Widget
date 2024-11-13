@@ -22,7 +22,7 @@ Route::get('/contacts/{contact_id}', [DBController::class, 'getContactData']);
 
 Route::get('/messages/{contact_id}', [WidgetController::class, 'getMessages']);
 
-Route::post('/send', [MessageController::class, 'sendMessage']);
+Route::post('/send/{contact_id}', [MessageController::class, 'sendMessage']);
 
 
 

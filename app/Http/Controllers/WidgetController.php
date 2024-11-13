@@ -9,7 +9,7 @@ class WidgetController extends Controller
     public function getMessages($contactId)
     {
         $contactDb = DB::table('contacts')
-            ->where('smart_sender_id', $contactId)
+            ->where('zoho_crm_id', $contactId)
             ->first();
 
         if($contactDb)
@@ -18,7 +18,7 @@ class WidgetController extends Controller
                 ->where('contact_id', $contactDb->id)
                 ->orderBy('delivered_at', 'desc')
                 ->get();
-            return $messages;
+            return response()->json($messages);
         }
         return response()->json(['message' => 'Contact not found'], 404);
     }

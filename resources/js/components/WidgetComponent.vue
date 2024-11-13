@@ -27,10 +27,10 @@ export default {
             }
         },
 
-        sendMessage() {
+        sendMessage(contactId) {
             if (this.messageText.trim() !== "") {
                 axios.post(
-                    `/send/`,
+                    `/send/${contactId}`,
                     {
                         type: "text",
                         content: this.messageText,

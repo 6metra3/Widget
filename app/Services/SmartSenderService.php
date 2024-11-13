@@ -47,13 +47,13 @@ class SmartSenderService
         }
     }
 
-    public function sendMessage(Request $request)
+    public function sendMessage(Request $request, $contactId)
     {
         $data = $request->all();
 
         $response = Http::withHeaders([
             'Authorization' => $this->apiKey,
-        ])->post("https://api.smartsender.com/v1/contacts/192714047/send", $data);
+        ])->post("https://api.smartsender.com/v1/contacts/{$contactId}/send", $data);
 
         if ($response->successful()) {
             return $response->json();
