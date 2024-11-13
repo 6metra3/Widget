@@ -14,13 +14,13 @@ export default {
             return format(new Date(dateString), 'HH:mm');
         },
 
-        async contactData(){
-            await axios.get("/contacts/192714047");
+        async contactData(contactId){
+            await axios.get(`/contacts/${contactId}`);
         },
 
-        async fetchMessages() {
+        async fetchMessages(contactId) {
             try {
-                const response = await axios.get("/messages/192714047");
+                const response = await axios.get(`/messages/${contactId}`);
                 this.messages = response.data;
             } catch (error) {
                 console.error("Failed to fetch messages:", error);

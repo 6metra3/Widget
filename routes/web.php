@@ -10,11 +10,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -24,9 +22,5 @@ Route::get('/messages/{contact_id}', [WidgetController::class, 'getMessages']);
 
 Route::post('/send/{contact_id}', [MessageController::class, 'sendMessage']);
 
-
-
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
